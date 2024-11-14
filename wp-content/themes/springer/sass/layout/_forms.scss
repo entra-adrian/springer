@@ -1,0 +1,86 @@
+@include placeholder {
+    color: lighten($text-color, 10%);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid #cccccc;
+    color: $text-color;
+    font-family: $font-family-base;
+    line-height: $line-height-base;
+    outline: none;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    &:focus {
+        border-color: #999999;
+        outline: none;
+    }
+}
+
+select {
+  
+}
+
+textarea {
+    resize: none;
+}
+
+.wpcf7 {
+    .screen-reader-response {
+        display: none !important;
+    }
+
+    .wpcf7-not-valid-tip {
+        display: block;
+    }
+
+    .wpcf7-validation-errors {
+        color: #b60005;
+    }
+
+    
+
+}
+
+form {
+    .gdpr {
+        label {
+            display: flex;
+            font-weight: 400;
+            font-size: 14px;
+
+            input {
+                margin-right: 10px;
+                margin-top: 2px;
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+}

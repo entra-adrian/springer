@@ -1,0 +1,11 @@
+@import "vendors/normalize";
+@import "vendors/wp_core_styles";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/fonts";
+@import "base/typography";
+@import "components/buttons";
+
+body {
+    margin: 20px;
+}

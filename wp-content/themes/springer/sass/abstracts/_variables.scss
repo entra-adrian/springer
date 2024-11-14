@@ -1,0 +1,49 @@
+$font-family-base: 'Open Sans', sans-serif;
+// $font-family-alt: "Arial", sans-serif;
+$icon-family-base: "ThemeIcons";
+
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+$text-color: #080808;
+$link-color: inherit;
+
+$headings-font-family: $font-family-base;
+$headings-font-weight: 500;
+$headings-line-height: 1.3;
+$headings-color: inherit;
+
+$brand-color: #46B919;
+$brand-color-alt: yellow;
+
+$button-color: $brand-color;
+$button-text-color: #ffffff;
+
+// viewport & screen sizes
+$mobile: 480px;
+$small-tablet: 768px;
+$tablet: 1024px;
+$small-desktop: 1280px;
+$desktop: 1480px;
+$viewport-increment: 1px;
+
+// layout
+$grid-columns: 12;
+$grid-gutter: 20px;
+
+// sections
+$section-margin: 100px; // margin bottom
+$section-padding: 80px; // when using bg colour
+$element-margin: 30px; // used for p tag and space between content elements
+
+// header
+$desktop-header-height: 90px;
+$mobile-header-height: 60px;
+$hamburger-height: 21px;
+$hamburger-width: 30px;
+$hamburger-line-height: 3px;
+$hamburger-translateY: ($hamburger-height - $hamburger-line-height) / 2;
+
+// centering
+$centering-width: 1320px; // centering-width = width + 80 (gutter width)
+$centering-width-small: 1000px; // used for standard page

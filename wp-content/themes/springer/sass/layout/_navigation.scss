@@ -1,0 +1,148 @@
+nav ul,
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav {
+    //color: white;
+
+    @include until($small-tablet) {
+        -webkit-overflow-scrolling: touch;
+        background: white;
+        color: black;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        overflow-y: auto;
+        padding: #{$mobile-header-height} 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: opacity 350ms ease, visibility 350ms ease;
+        visibility: hidden;
+        width: 100%;
+        z-index: 100;
+
+        .is-open-menu & {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &.is-active {
+            height: 100%;
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none;
+        margin: 0 -15px;
+        padding: 0;
+
+        @include until($small-tablet) {
+            flex-direction: column;
+            text-align: center;
+            margin: 0;
+            min-height: 100%;
+            justify-content: center;
+        }
+
+        .menu-item {
+            margin: 0 15px;
+            text-transform: uppercase;
+
+            @include until($small-tablet) {
+                margin: 20px 0;
+            }
+
+            a {
+                font-size: 18px;
+                font-weight: 400;
+                color: inherit;
+                padding: 10px 0;
+
+                &:hover {
+                    color: $brand-color;
+                }
+            }
+
+            &.current-menu-item,
+            &.current_page_ancestor,
+            &.current_page_parent {
+                > a {
+                    color: $brand-color;
+                }
+            }
+        }
+
+        .menu-item-has-children {
+            position: relative;
+
+            > a {
+                position: relative;
+                padding-right: 20px;
+
+                &:after {
+                    content: "+";
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transition: transform 0.2s linear;
+                }
+            }
+
+            &.open-submenu {
+                > a {
+                    &:after {
+                        transform: translateY(-50%) rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-menu {        
+        @include at-least($small-tablet) {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            min-width: 200px;
+            background-color: #fff;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 10px;
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+            top: calc(100% + 10px);
+            transition: opacity 350ms ease, visibility 350ms ease;
+        }
+
+        @include until($small-tablet) {
+            display: none;;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .open-submenu > .sub-menu {
+        @include at-least($small-tablet) {
+            opacity: 1;
+            visibility: visible;
+        }
+        @include until($small-tablet) {
+            display: block;
+        }
+    }
+}
