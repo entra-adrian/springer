@@ -83,6 +83,7 @@
         img {
             display: block;
             margin: 0 auto 0;
+            border-radius: 10px;
         }
 
         &.stretch {
@@ -374,33 +375,73 @@
     }
 
     &.text-columns {
-        &.has-bg {
-            padding: 100px 0;
-            &.green {
-                background-color: $brand-color;
-                color: #fff;
+        .section-pretext {
+            margin-bottom: 35px;
+
+            h2, h3 {
+                color: $brand-color;
             }
         }
 
-        .section-title {
-            margin-bottom: 50px;
+        ul {
+            &.arrow-marker {
+                li {
+                    font-size: 16px;
+                    line-height: 24px;
+                    padding-left: 16px;
+                    margin-bottom: 24px;
+
+                    &::marker {
+                    content: url('../images/li-arrow.svg');
+                    }
+
+
+                    &:last-child {
+                        margin-bottom: 24px;
+                    }
+                }
+            }
         }
 
-        ul {
-            li {
-                font-size: 16px;
-                line-height: 24px;
-                padding-left: 16px;
-                margin-bottom: 24px;
+        &.has-bg {
+            padding: 100px 0;
+            
+            &.green {
+                background-color: $brand-color;
+                color: #fff;
 
-                &::marker {
-                   content: url('../images/li-arrow.svg');
+                .section-pretext {
+                    margin-bottom: 35px;
+        
+                    h2, h3 {
+                        color: #fff;
+                    }
                 }
+            }
+        }
+    }
 
+    &.simple-text-items {
+        .section-text {
+            font-size: 22px;
+        }
+    }
 
-                &:last-child {
-                    margin-bottom: 24px;
+    &.person-detail-blocks {
+        .section-image {
+            @include until ($small-tablet) {
+                img {
+                    margin-left: 0;
                 }
+            }
+        }
+
+        .grid {
+            margin-bottom: 10px;
+            
+            @include until ($small-tablet) {
+                flex-direction: column-reverse;
+                margin-bottom: 0;
             }
         }
     }

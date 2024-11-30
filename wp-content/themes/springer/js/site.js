@@ -61,30 +61,32 @@ jQuery(document).ready(function($) {
     });
 
     // Define Flickity options & initialise Flickity slideshows
-    var flickity_defaults = {
-        accessibility: false,
-        autoPlay: false,
-        cellAlign: "center",
-        cellSelector: ".slideshow-slide",
-        contain: true,
-        draggable: ">1",
-        imagesLoaded: true,
-        pageDots: false,
-        prevNextButtons: true
-    };
-    $(".slideshow").each(function(index) {
-        if($(this).find('.slideshow-slide').length > 1) {            
-            var flickity_options = flickity_defaults; // get default flickity options
-            var slider_options = $(this).data("flickity-options"); // get slider custom options
-            // check if custom options are set and parse into default options
-            if (typeof slider_options !== "undefined") {
-                flickity_options = $.extend({}, flickity_defaults, slider_options);
+    $(document).ready(function() {
+        var flickity_defaults = {
+            accessibility: false,
+            autoPlay: false,
+            cellAlign: "center",
+            cellSelector: ".slideshow-slide",
+            contain: true,
+            draggable: ">1",
+            imagesLoaded: true,
+            pageDots: false,
+            prevNextButtons: true
+        };
+    
+        $(".slideshow").each(function() {
+            var $slideshow = $(this); // Reference the current slideshow
+            if ($slideshow.find('.slideshow-slide').length > 1) {
+                // Fetch Flickity options from data attribute if available
+                var customOptions = $slideshow.data("flickity-options");
+                var flickity_options = $.extend({}, flickity_defaults, customOptions || {});
+                
+                // Initialize Flickity
+                $slideshow.flickity(flickity_options);
             }
-            // init flickity on this element
-            var $carousel = $(this).flickity(flickity_options);
-        }
+        });
     });
-
+    
     // accordion
     $('.accordion-title').on('click', function(e) {
         e.preventDefault();

@@ -13,8 +13,86 @@
             width: 100%;
         }
     }
-    
 
+    .flickity-prev-next-button {
+        width: 50px;
+        height: 50px;
+        background-color: $brand-color;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            z-index: 1;
+            filter: invert(1);
+        }
+
+        svg {
+            display: none;
+        }
+
+        &:hover {
+            background-color: $brand-color;
+        }
+
+        &.next {
+            right: 0;
+            transform: translate(50%, -50%);
+
+            &:before {
+                background-image: url('../images/next.png');
+            }
+        }
+
+        &.previous {
+            left: 0;
+            transform: translate(-50%, -50%);
+
+            &:before {
+                background-image: url('../images/previous.png');
+            }
+        }
+
+        &:active {
+            opacity: 1;
+        }
+
+        &:disabled {
+            opacity: 1;
+        }
+    }
+
+    .flickity-page-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .dot {
+            background-color: transparent;
+            border: 1px solid #000;
+            width: 15px;
+            height: 15px;
+            opacity: 1;
+            transition: all 150ms ease-in-out;
+
+            &.is-selected {
+                border-color: $brand-color;
+                background-color: $brand-color;
+                width: 20px;
+                height: 20px
+            }
+        }
+    }
+    
     &.main-slideshow {
         .slideshow-slide {
             @extend %fit-image;
@@ -125,6 +203,79 @@
                 content: "flickity";
                 display: none;
             } 
+        }
+    }
+
+    &.download-image-slideshow {
+        position: relative;
+        margin: 0 -15px;
+
+        .slideshow-slide {
+            width: 28%;
+            margin: 0 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+
+            .download-image {
+                @extend %fit-image;
+                height: 180px;
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                    transition: all 350ms ease-in-out;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+            }
+
+            .download-link {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 350ms ease-in-out;
+                visibility: hidden;
+                opacity: 0;
+
+                &:before {
+                    content: '';
+                    background-image: url('../images/download-icon.png');
+                    width: 45px;
+                    height: 45px;
+                    background-size: cover;
+					background-position: center;
+					display: block;
+                    filter: invert(1);
+                }
+                span {
+                    display: block;
+                    color: #fff;
+                    font-size: 1.375rem;
+                    font-weight: 400;
+                    font-family: "Helvetica Neue LT Std";
+                }
+            }
+
+            &:hover {
+                .download-image {
+                    opacity: 0.8;
+                    visibility: visible;
+                }
+
+                .download-link {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
         }
     }
 }

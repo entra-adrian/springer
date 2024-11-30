@@ -76,3 +76,142 @@
 		}
 	}
 }
+
+.images-text-block {
+	padding: 50px;
+	border-radius: 10px;
+	background-color: #fff;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 50px;
+
+	@include until ($small-tablet) {
+		flex-direction: column-reverse;
+		padding: 0;
+		margin-bottom: 30px;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.section-content {
+		width: 50%;
+		padding-left: 50px;
+
+		@include until ($small-tablet) {
+			width: 100%;
+			margin-bottom: 20px !important;
+			padding-left: 0;
+		}
+
+		.content-title {
+			padding-top: 25px;
+			font-size: 48px;
+
+			@include until ($small-desktop) {
+				font-size: 30px;
+			}
+
+			@include until ($small-tablet) {
+				margin-bottom: 15px;
+				padding-top: 15px;
+			}
+		}
+
+		.content-text {
+			font-size: 22px;
+
+			@include until ($small-desktop) {
+				font-size: 18px;
+			}
+
+			@include until ($small-tablet) {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.image-slideshow {
+		width: 50%;
+		padding: 0 15px;
+		
+		@include until ($small-tablet) {
+			width: 100%;
+			padding: 0;
+		}
+
+		img {
+			border-radius: 15px;
+		}
+
+		.flickity-page-dots {
+			bottom: 0px;
+			width: calc(100% - 30px);
+
+			@include until ($small-tablet) {
+				width: 100%;
+			}
+		}
+
+		&.padding-bottom {
+			padding-bottom: 50px;
+		}
+	}
+
+	&.right-images {
+		flex-direction: row-reverse;
+
+		@include until ($small-tablet) {
+			flex-direction: column-reverse;
+		}
+	
+		.section-content {
+			padding: 0 50px 0 0;
+
+			@include until ($small-tablet) {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+.person-block {
+	@include until ($small-tablet) {
+		margin-bottom: 40px;
+	}
+
+	.title {
+		color: $brand-color;
+		margin: 0;
+	}
+
+	.occupation {
+		font-size: 22px;
+		margin-bottom: 24px;
+
+		@include until ($small-tablet) {
+			font-size: 18px;
+		}
+	}
+
+	.address {
+		margin: 50px 0 25px;
+
+		@include until ($small-tablet) {
+			margin-top: 25px;
+		}
+	}
+
+	.telephone {
+		line-height: 1.3;
+
+		a {
+			color: $brand-color;	
+
+			&:hover {
+				color: #2d7610;
+			}
+		}
+	}
+}

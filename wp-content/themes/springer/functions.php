@@ -52,7 +52,7 @@ add_action('after_setup_theme', 'xtheme_setup_theme');
  * @package xtheme
  */
 function xtheme_styles() {
-    wp_register_style('xtheme-layout', get_bloginfo('stylesheet_directory') . '/css/layout.css', false, '1.0');
+    wp_register_style('xtheme-layout', get_bloginfo('stylesheet_directory') . '/css/layout.css', false, '1.1');
     wp_enqueue_style('xtheme-layout');    
 
     if(!is_home() && !is_archive()) {
@@ -190,21 +190,23 @@ function get_page_title() {
 }
 
 function xtheme_render_pagebuilder_elements() {
+    $content = ''; // Initialize the variable
     ob_start();
-    // check if the flexible content field has rows of data
-    if( have_rows('page_builder') ):
-         // loop through the rows of data
-        while ( have_rows('page_builder') ) : the_row();
-                
-            echo get_template_part( 'sections/section', get_row_layout() );
-        
-        endwhile;
-    endif;
-    $content .= ob_get_contents();
-    ob_end_clean();
 
+    // Check if the flexible content field has rows of data
+    if( have_rows('page_builder') ):
+
+        // Loop through the rows of data
+        while ( have_rows('page_builder') ) : the_row();
+            // Include the template part for the current layout
+            echo get_template_part( 'sections/section', get_row_layout() );
+        endwhile;
+
+    endif;
+    $content .= ob_get_clean(); // Safely append the buffer contents
     return $content;
 }
+
 
 function xtheme_render_postbuilder_elements() {
     ob_start();

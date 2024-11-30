@@ -13,6 +13,10 @@
         align-items: center;
     }
 
+    &.align-bottom {
+        align-items: end;
+    }
+
     &.align-horizontally {
         justify-content: center;
     }

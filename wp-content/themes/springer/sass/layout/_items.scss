@@ -57,6 +57,28 @@
 		}
 	}
 
+	&.simple-text {
+		border-radius: 10px;
+		box-shadow: 0 4px 11px rgba(85, 85, 85, 0.1);
+		transition: all ease-in-out 0.3s;
+		padding: 30px 20px;
+		min-height: 260px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 17px;
+		max-width: 350px;
+		margin: 40px auto 0;
+
+		&:hover {
+			box-shadow: 0 4px 11px rgba(85, 85, 85, 0.2);
+		}
+		
+		.item-url {
+			color: #000 !important;
+		}
+	}
+
 	&.icon {
 		margin: 50px 0 20px;
 
@@ -73,6 +95,18 @@
 
 		.item-title {
 			margin-bottom: 10px;
+		}
+
+		&.align-left {
+			text-align: left;
+
+			.item-title {
+				color: $brand-color;
+			}
+
+			.item-icon {
+				margin-left: 0;
+			}
 		}
 	}
 
@@ -102,6 +136,7 @@
 		.item-title {
 			font-weight: 600;
 			padding: 30px 10px;
+			color: #000 !important;
 		}
 
 		&:hover {
@@ -480,6 +515,61 @@
 					transform: translateY(0);
 				}
 			}
+		}
+	}
+
+	&.data {
+		display: flex;
+		flex-direction: column;
+		border-radius: 10px;
+		padding: 60px;
+		box-shadow: 0 4px 11px rgba(85, 85, 85, 0.1);
+		box-sizing: border-box;
+		height: 100%;
+
+		@include until ($small-desktop) {
+			padding: 40px;
+		}
+
+		@include until ($small-tablet) {
+			padding: 25px;
+		}
+
+		.item-title {
+			color: $brand-color;
+			margin-bottom: 25px;
+
+			@include until ($small-tablet) {
+				font-size: 24px;
+			}
+		}
+
+		.item-details {
+			margin-bottom: 20px;
+
+			.row {
+				font-size: 22px;
+				display: flex;
+				align-items: center;
+
+				@include until ($small-tablet) {
+					font-size: 18px;
+				}
+
+				.label {
+					font-weight: 800;
+					margin-right: 5px
+				}
+			}
+		}
+
+		.item-image {
+			@extend %fit-image;
+			height: 0;
+			padding-bottom: 65%;
+			margin-top: auto;
+			border-radius: 10px;
+			overflow: hidden;
 		}
 	}
 }
